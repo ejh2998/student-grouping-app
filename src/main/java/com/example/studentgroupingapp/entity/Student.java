@@ -14,31 +14,17 @@ public class Student {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "class_id")
-    private Class theClass;
+    @JoinColumn(name = "class_of_students_id")
+    private ClassOfStudents classOfStudents;
 
     @ElementCollection
     private List<String> cannotSitWith;
 
-    public Long getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Class getTheClass() {
-        return theClass;
-    }
-
-    public void setTheClass(Class theClass) {
-        this.theClass = theClass;
-    }
 
     public List<String> getCannotSitWith() {
         return cannotSitWith;

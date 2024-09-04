@@ -15,11 +15,15 @@ public class TableAssignment {
     private Student student;
 
     @ManyToOne
-    @JoinColumn(name = "class_id")
-    private Class theClass;
+    @JoinColumn(name = "assigned_class_id")
+    private ClassOfStudents assignedClass;
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public int getTableNumber() {
@@ -38,11 +42,12 @@ public class TableAssignment {
         this.student = student;
     }
 
-    public Class getTheClass() {
-        return theClass;
+    public ClassOfStudents getAssignedClass() {
+        return assignedClass;
     }
 
-    public void setTheClass(Class theClass) {
-        this.theClass = theClass;
+    public void setAssignedClass(ClassOfStudents assignedClass) {
+        this.assignedClass = assignedClass;
     }
+
 }

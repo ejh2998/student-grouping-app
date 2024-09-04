@@ -19,7 +19,7 @@ public class StudentService {
     }
 
     public List<Student> getStudentsByClassId(Long classId) {
-        return studentRepository.findByClassId(classId);
+        return studentRepository.findByClassOfStudents_id(classId);
     }
 
     public Optional<Student> getStudentById(Long id) {

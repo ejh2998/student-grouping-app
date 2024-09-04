@@ -5,14 +5,14 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-public class Class {
+public class ClassOfStudents {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "class", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "classOfStudents", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Student> students;
 
 

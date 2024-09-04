@@ -17,8 +17,8 @@ public class TableAssignmentController {
     private TableAssignmentService tableAssignmentService;
 
     @GetMapping("/class/{classId}")
-    public List<TableAssignment> getAssignmentsByClassId(@PathVariable Long classId) {
-        return tableAssignmentService.getAssignmentsByClassId(classId);
+    public Optional<TableAssignment> getAssignmentsByClassId(@PathVariable Long classId) {
+        return tableAssignmentService.getAssignmentById(classId);
     }
 
     @GetMapping("/{id}")
@@ -34,8 +34,15 @@ public class TableAssignmentController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAssignment(@PathVariable Long id) {
-        tableAssignmentService.deleteAssignmentById(id);
+        tableAssignmentService.deleteAssignment(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/assign")
+    public List<TableAssignment> assignStudentsToTables(@RequestParam Long classId,
+                                                        @RequestParam int numTables,
+                                                        @RequestParam int studentsPerTable) {
+        return tableAssignmentService.assignStudentsToTables(classId, numTables, studentsPerTable);
     }
 
 }
